@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+</head>
+<body>
+
+    <h1>Comments Section</h1>
+    <br>
+    <form action="/comments" method="get">
+        <label for="id">Search Id: </label>
+        <input type="number" name="id" placeholder="search">
+        <input type="submit" value="Submit">
+    </form>
+
+    <br>
+    <ol type="1">
+        <% for(let c of comments) { %>
+            <li><b><%= c.username %></b> : <%= c.comment %> <button><a href="/comments/<%=c.id %>">Details</a></button> |
+                <button><a href="/comments/<%=c.id%>/edit">Edit</a></button></li>
+            
+            <br>
+        <% } %>
+    </ol>
+
+    <button><a href="/new_comments">Add Comment</a></button>
+    
+
+    
+</body>
+</html>
